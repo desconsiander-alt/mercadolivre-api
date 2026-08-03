@@ -17,13 +17,14 @@ router.get("/", async (req, res) => {
 
     res.json(produtos);
 
-  } catch (erro) {
-    console.error(erro);
+  } catch (error) {
+    console.error(error);
 
     res.status(500).json({
-      erro: "Erro ao buscar produtos."
+        erro: error.message,
+        stack: error.stack
     });
-  }
+}
 });
 
 module.exports = router;
